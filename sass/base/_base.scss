@@ -9,7 +9,10 @@ html {
 }
 
 body {
+    font-family: Gordita, sans-serif;
     font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--body-bg);
 }
 
 a {
@@ -21,4 +24,16 @@ button {
     outline: none;
     border: none;
     background: transparent;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+    color: inherit;
+}
+
+.icon {
+    filter: var(--icon-color);
 }
