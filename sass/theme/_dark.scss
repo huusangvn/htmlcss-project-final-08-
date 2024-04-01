@@ -9,4 +9,17 @@ html.dark {
     --top-act-group-bg-color: #292e39;
     --top-act-group-shadow: #00000033;
     --top-act-group-separate: #ededf6;
+
+    @include abstracts.breakpoints(lg) {
+        --header-shadow-color: #00000033;
+    }
+
+    // Dropdown
+    --dropdown-bg-color: #2f3441;
+    --dropdown-shawdown-color: #171c2866;
+    --dropdown-arrow-color: brightness(0) saturate(100%) invert(20%) sepia(22%)
+        saturate(442%) hue-rotate(185deg) brightness(91%) contrast(97%);
+    --top-menu-border-color: #171c28;
+    --menu-column-icon-color: brightness(0) saturate(100%) invert(86%) sepia(6%)
+        saturate(2076%) hue-rotate(198deg) brightness(117%) contrast(96%);
 }

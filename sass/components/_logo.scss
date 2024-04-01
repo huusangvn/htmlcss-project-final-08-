@@ -9,7 +9,7 @@
         gap: 10px;
         margin-left: 40px;
     }
-    @include abstracts.breakpoints(sm) {
+    @include abstracts.breakpoints(md) {
         margin-left: 0;
     }
     &__title {

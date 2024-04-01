@@ -13,5 +13,10 @@ html {
 
     @include abstracts.breakpoints(lg) {
         --header-bg-color: #fff;
+        --header-shadow-color: #ededf633;
     }
+    // Dropdown
+    --dropdown-bg-color: #fff;
+    --dropdown-shawdown-color: #c8c8c8;
+    --top-menu-border-color: #d2d1d6;
 }

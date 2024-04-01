@@ -1,0 +1,105 @@
+.dropdown {
+    position: absolute;
+    left: 0;
+    padding-top: 54px;
+    // display: none;
+    width: min(1240px, 100%);
+
+    &__inner {
+        --inner-padding: 30px;
+        position: relative;
+        border-radius: 20px;
+        padding: var(--inner-padding);
+        background: var(--dropdown-bg-color);
+        box-shadow: 0px 40px 90px 20px var(--dropdown-shawdown-color);
+
+        &::before {
+            content: url("../icons/dropdown-arrow.svg");
+            position: absolute;
+            top: -14px;
+            left: var(--arrow-left-pos);
+            translate: -50%;
+            filter: var(--dropdown-arrow-color);
+        }
+    }
+}
+.top-menu {
+    --main-column-width: 292px;
+    position: relative;
+    &__main {
+        height: calc(min(582px, (100vh - 158px)) - var(--inner-padding) * 2);
+        width: var(--main-column-width);
+        border-right: 1px solid var(--top-menu-border-color);
+        overflow-y: auto;
+    }
+}
+
+.menu-column {
+    + .menu-column {
+        margin-top: 30px;
+    }
+    display: flex;
+    gap: 14px;
+    &__icon {
+        position: relative;
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+    }
+    &__content {
+        flex: 1;
+    }
+    &__icon-1 {
+        object-fit: cover;
+        width: 30px;
+        height: 30px;
+    }
+    &__icon-2 {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        object-fit: cover;
+        width: 24px;
+        height: 24px;
+        filter: var(--menu-column-icon-color);
+    }
+    &__heading {
+        margin-top: 5px;
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 24px;
+        color: var();
+    }
+
+    &__list {
+        margin-top: 19px;
+    }
+    &__item {
+        &:hover .sub-menu {
+            display: grid;
+        }
+    }
+
+    &__item:hover > &__link {
+        color: #0071dc;
+        font-weight: 500;
+    }
+
+    &__link {
+        padding: 7px 0;
+        display: block;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 142.86%;
+    }
+}
+
+.sub-menu {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--inner-padding);
+    position: absolute;
+    inset: 0 0 0 var(--main-column-width);
+    padding-left: var(--inner-padding);
+    overflow-y: auto;
+}
