@@ -1,8 +1,9 @@
+@use "../abstracts";
 .dropdown {
     position: absolute;
     left: 0;
     padding-top: 54px;
-    // display: none;
+    display: none;
     width: min(1240px, 100%);
 
     &__inner {
@@ -25,9 +26,10 @@
 }
 .top-menu {
     --main-column-width: 292px;
+    --max-inner-height: calc(min(582px, (100vh - 145px)) - var(--inner-padding) * 2);
     position: relative;
     &__main {
-        height: calc(min(582px, (100vh - 158px)) - var(--inner-padding) * 2);
+        height: calc(min(582px, (100vh - 145px)) - var(--inner-padding) * 2);
         width: var(--main-column-width);
         border-right: 1px solid var(--top-menu-border-color);
         overflow-y: auto;
@@ -36,7 +38,7 @@
 
 .menu-column {
     + .menu-column {
-        margin-top: 30px;
+        margin-top: 20px;
     }
     display: flex;
     gap: 14px;
@@ -45,12 +47,16 @@
         flex-shrink: 0;
         width: 36px;
         height: 36px;
+
+        @include abstracts.breakpoints(xl) {
+            display: none;
+        }
     }
     &__content {
         flex: 1;
     }
     &__icon-1 {
-        object-fit: cover;
+        object-fit: contain;
         width: 30px;
         height: 30px;
     }
@@ -58,7 +64,7 @@
         position: absolute;
         right: 0;
         bottom: 0;
-        object-fit: cover;
+        object-fit: contain;
         width: 24px;
         height: 24px;
         filter: var(--menu-column-icon-color);
@@ -75,11 +81,11 @@
         margin-top: 19px;
     }
     &__item {
-        &:hover .sub-menu {
+        &--active .sub-menu {
             display: grid;
         }
     }
-
+    &__item--active:hover > &__link,
     &__item:hover > &__link {
         color: #0071dc;
         font-weight: 500;
@@ -102,4 +108,12 @@
     inset: 0 0 0 var(--main-column-width);
     padding-left: var(--inner-padding);
     overflow-y: auto;
+    &--not-main {
+        inset: initial;
+        position: initial;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        height: var(--max-inner-height);
+        padding-left: 0;
+    }
 }
