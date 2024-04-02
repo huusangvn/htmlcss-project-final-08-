@@ -77,6 +77,8 @@
         @include abstracts.breakpoints(lg) {
             flex-direction: column;
             align-items: start;
+            overflow-y: auto;
+            height: calc(100% - 26px);
         }
     }
     &__item {
@@ -85,9 +87,6 @@
         }
         @include abstracts.breakpoints(lg) {
             width: 100%;
-            &:hover .dropdown {
-                display: none;
-            }
         }
     }
     &__link {

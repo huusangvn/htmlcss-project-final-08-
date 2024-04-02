@@ -1420,6 +1420,8 @@ html {
   .navbar__list {
     flex-direction: column;
     align-items: start;
+    overflow-y: auto;
+    height: calc(100% - 26px);
   }
 }
 .navbar__item:hover .dropdown {
@@ -1428,9 +1430,6 @@ html {
 @media (max-width: 991.98px) {
   .navbar__item {
     width: 100%;
-  }
-  .navbar__item:hover .dropdown {
-    display: none;
   }
 }
 .navbar__link {
@@ -1542,6 +1541,13 @@ html {
   display: none;
   width: min(1240px, 100%);
 }
+@media (max-width: 991.98px) {
+  .dropdown {
+    position: initial;
+    display: block;
+    padding-top: 0;
+  }
+}
 .dropdown__inner {
   --inner-padding: 30px;
   position: relative;
@@ -1558,6 +1564,17 @@ html {
   translate: -50%;
   filter: var(--dropdown-arrow-color);
 }
+@media (max-width: 991.98px) {
+  .dropdown__inner {
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: 0 40px;
+  }
+  .dropdown__inner::before {
+    content: none;
+  }
+}
 
 .top-menu {
   --main-column-width: 292px;
@@ -1570,6 +1587,13 @@ html {
   border-right: 1px solid var(--top-menu-border-color);
   overflow-y: auto;
 }
+@media (max-width: 991.98px) {
+  .top-menu__main {
+    width: 100%;
+    height: auto;
+    border-right: none;
+  }
+}
 
 .menu-column {
   display: flex;
@@ -1577,6 +1601,11 @@ html {
 }
 .menu-column + .menu-column {
   margin-top: 20px;
+}
+@media (max-width: 991.98px) {
+  .menu-column {
+    margin-top: 10px;
+  }
 }
 .menu-column__icon {
   position: relative;
@@ -1587,6 +1616,11 @@ html {
 @media (max-width: 1199.98px) {
   .menu-column__icon {
     display: none;
+  }
+}
+@media (max-width: 991.98px) {
+  .menu-column__icon {
+    display: block;
   }
 }
 .menu-column__content {
@@ -1611,10 +1645,19 @@ html {
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 24px;
-  color: var();
+}
+@media (max-width: 991.98px) {
+  .menu-column__heading {
+    margin-bottom: 26px;
+  }
 }
 .menu-column__list {
   margin-top: 19px;
+}
+@media (max-width: 991.98px) {
+  .menu-column__list {
+    margin-top: 0;
+  }
 }
 .menu-column__item--active .sub-menu {
   display: grid;
@@ -1639,6 +1682,13 @@ html {
   inset: 0 0 0 var(--main-column-width);
   padding-left: var(--inner-padding);
   overflow-y: auto;
+}
+@media (max-width: 991.98px) {
+  .sub-menu {
+    position: inherit;
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
 }
 .sub-menu--not-main {
   inset: initial;

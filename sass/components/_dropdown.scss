@@ -5,7 +5,11 @@
     padding-top: 54px;
     display: none;
     width: min(1240px, 100%);
-
+    @include abstracts.breakpoints(lg) {
+        position: initial;
+        display: block;
+        padding-top: 0;
+    }
     &__inner {
         --inner-padding: 30px;
         position: relative;
@@ -22,6 +26,16 @@
             translate: -50%;
             filter: var(--dropdown-arrow-color);
         }
+        @include abstracts.breakpoints(lg) {
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+            padding: 0 40px;
+
+            &::before {
+                content: none;
+            }
+        }
     }
 }
 .top-menu {
@@ -33,6 +47,12 @@
         width: var(--main-column-width);
         border-right: 1px solid var(--top-menu-border-color);
         overflow-y: auto;
+
+        @include abstracts.breakpoints(lg) {
+            width: 100%;
+            height: auto;
+            border-right: none;
+        }
     }
 }
 
@@ -42,6 +62,9 @@
     }
     display: flex;
     gap: 14px;
+    @include abstracts.breakpoints(lg) {
+        margin-top: 10px;
+    }
     &__icon {
         position: relative;
         flex-shrink: 0;
@@ -50,6 +73,9 @@
 
         @include abstracts.breakpoints(xl) {
             display: none;
+        }
+        @include abstracts.breakpoints(lg) {
+            display: block;
         }
     }
     &__content {
@@ -74,11 +100,16 @@
         font-size: 1.6rem;
         font-weight: 500;
         line-height: 24px;
-        color: var();
+        @include abstracts.breakpoints(lg) {
+            margin-bottom: 26px;
+        }
     }
 
     &__list {
         margin-top: 19px;
+        @include abstracts.breakpoints(lg) {
+            margin-top: 0;
+        }
     }
     &__item {
         &--active .sub-menu {
@@ -108,6 +139,12 @@
     inset: 0 0 0 var(--main-column-width);
     padding-left: var(--inner-padding);
     overflow-y: auto;
+
+    @include abstracts.breakpoints(lg) {
+        position: inherit;
+        grid-template-columns: 1fr;
+        padding-left: 0;
+    }
     &--not-main {
         inset: initial;
         position: initial;
