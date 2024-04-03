@@ -2,8 +2,8 @@
 
 html {
     --text-color: #1a162e;
-    --icon-color: brightness(0) saturate(100%) invert(4%) sepia(86%)
-        saturate(1762%) hue-rotate(236deg) brightness(96%) contrast(91%);
+    --icon-color: brightness(0) saturate(100%) invert(4%) sepia(86%) saturate(1762%) hue-rotate(236deg) brightness(96%)
+        contrast(91%);
 
     --body-bg: #f6f6f6;
     --header-bg-color: #eee;
@@ -19,4 +19,8 @@ html {
     --dropdown-bg-color: #fff;
     --dropdown-shawdown-color: #c8c8c8;
     --top-menu-border-color: #d2d1d6;
+
+    // Sidebar
+    --sidebar-bg: #fff;
+    --sidebar-shadow: #c8c8c866;
 }
