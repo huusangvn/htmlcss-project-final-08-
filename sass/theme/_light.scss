@@ -11,7 +11,7 @@ html {
     --top-act-group-shadow: #ededf633;
     --top-act-group-separate: #ededf6;
 
-    @include abstracts.breakpoints(lg) {
+    @include abstracts.screen(lg) {
         --header-bg-color: #fff;
         --header-shadow-color: #ededf633;
     }
@@ -23,4 +23,13 @@ html {
     // Sidebar
     --sidebar-bg: #fff;
     --sidebar-shadow: #c8c8c866;
+
+    // category-item
+    --cate-item-bg: #eee;
+    --cate-item-thumb-bg: #fff;
+    --cate-item-title-color: #000;
+
+    @include abstracts.screen(md) {
+        --cate-item-bg: #fff;
+    }
 }

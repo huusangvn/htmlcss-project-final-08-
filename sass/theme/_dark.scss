@@ -10,7 +10,7 @@ html.dark {
     --top-act-group-shadow: #00000033;
     --top-act-group-separate: #ededf6;
 
-    @include abstracts.breakpoints(lg) {
+    @include abstracts.screen(lg) {
         --header-shadow-color: #00000033;
     }
 
@@ -26,4 +26,9 @@ html.dark {
     // Sidebar
     --sidebar-bg: #292e39;
     --sidebar-shadow: #171c2866;
+
+    // category-item
+    --cate-item-bg: #171c28;
+    --cate-item-thumb-bg: #292e39;
+    --cate-item-title-color: #fff;
 }
