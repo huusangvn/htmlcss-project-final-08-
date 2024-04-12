@@ -35,6 +35,8 @@ input,
 textarea,
 select,
 img {
+    padding: 0;
+    border: none;
     outline: none;
     font-family: inherit;
     color: inherit;
