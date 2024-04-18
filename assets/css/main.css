@@ -1620,6 +1620,73 @@ html {
   margin-left: auto;
 }
 
+.footer {
+  background: #ccc;
+  padding: 100px;
+}
+.footer__inner {
+  background: #666;
+  padding: 40px 0;
+}
+.footer__heading {
+  margin: 0 auto;
+  font-size: 4.2rem;
+  font-weight: 700;
+  line-height: 142.857%;
+  color: #fff;
+}
+.footer__list-item {
+  margin: 20px auto 0;
+  display: flex;
+}
+.footer .item + .item {
+  margin-left: 20px;
+}
+.footer__link {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 146.667%;
+  color: #fff;
+  transition: transform 0.5s;
+}
+.item:hover > .footer__link {
+  color: #5ebbff;
+  transform: translateY(-10px);
+}
+.footer__separate {
+  width: 1px;
+  height: 20px;
+  background: #fff;
+}
+.footer .item-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  border: 1px solid #fff;
+}
+.footer .item-contact:hover {
+  background: #fff;
+}
+.footer .item-contact + .item-contact {
+  margin-left: 20px;
+}
+.footer__icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+.footer .CopyRight {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 166%;
+  color: #fff;
+}
+
 .logo {
   display: flex;
   align-items: center;
