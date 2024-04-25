@@ -1,9 +1,24 @@
+@use "../abstracts";
 .footer {
-  background: #ccc;
-  padding: 100px;
+  border-radius: 10px 10px 0 0;
+  background: #cccccc36;
+  padding: 80px;
+  @include abstracts.screen(xl) {
+    padding: 70px;
+  }
+  @include abstracts.screen(md) {
+    padding: 30px;
+  }
   &__inner {
-    background: #666;
+    border-radius: 6px;
+    background: #6666666b;
     padding: 40px 0;
+    @include abstracts.screen(xl) {
+      padding: 30px;
+    }
+    @include abstracts.screen(sm) {
+      padding: 10px;
+    }
   }
   &__heading {
     margin: 0 auto;
@@ -11,14 +26,23 @@
     font-weight: 700;
     line-height: 142.857%;
     color: #fff;
+    @include abstracts.screen(sm) {
+      font-size: 2.8rem;
+      font-weight: 600;
+    }
   }
   &__list-item {
     margin: 20px auto 0;
     display: flex;
+    @include abstracts.screen(sm) {
+    }
   }
 
   .item + .item {
     margin-left: 20px;
+    @include abstracts.screen(md) {
+      margin-left: 10px;
+    }
   }
   &__link {
     font-size: 1.5rem;
@@ -26,6 +50,9 @@
     line-height: 146.667%;
     color: #fff;
     transition: transform 0.5s;
+    @include abstracts.screen(md) {
+      font-size: 1.3rem;
+    }
   }
   .item:hover > &__link {
     color: #5ebbff;
@@ -45,6 +72,10 @@
     height: 50px;
     border-radius: 16px;
     border: 1px solid #fff;
+    @include abstracts.screen(md) {
+      width: 40px;
+      height: 40px;
+    }
     &:hover {
       background: #fff;
     }
@@ -56,6 +87,10 @@
     width: 30px;
     height: 30px;
     object-fit: contain;
+    @include abstracts.screen(md) {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   .CopyRight {
@@ -65,5 +100,9 @@
     font-weight: 400;
     line-height: 166%;
     color: #fff;
+    @include abstracts.screen(md) {
+      margin-top: 20px;
+      font-size: 1.6rem;
+    }
   }
 }

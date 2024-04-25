@@ -1,47 +1,50 @@
 @use "../abstracts";
 
 html {
-    --text-color: #1a162e;
-    --icon-color: brightness(0) saturate(100%) invert(4%) sepia(86%) saturate(1762%) hue-rotate(236deg) brightness(96%)
-        contrast(91%);
+  --text-color: #1a162e;
+  --icon-color: brightness(0) saturate(100%) invert(4%) sepia(86%)
+    saturate(1762%) hue-rotate(236deg) brightness(96%) contrast(91%);
 
-    --body-bg: #f6f6f6;
-    --header-bg-color: #eee;
-    --top-act-group-bg-color: #fff;
-    --top-act-group-shadow: #ededf633;
-    --top-act-group-separate: #ededf6;
+  --body-bg: #f6f6f6;
+  --header-bg-color: #eee;
+  --top-act-group-bg-color: #fff;
+  --top-act-group-shadow: #ededf633;
+  --top-act-group-separate: #ededf6;
 
-    @include abstracts.screen(lg) {
-        --header-bg-color: #fff;
-        --header-shadow-color: #ededf633;
-    }
-    // Dropdown
-    --dropdown-bg-color: #fff;
-    --dropdown-shawdown-color: #c8c8c8;
-    --top-menu-border-color: #d2d1d6;
+  @include abstracts.screen(lg) {
+    --header-bg-color: #fff;
+    --header-shadow-color: #ededf633;
+  }
+  // Dropdown
+  --dropdown-bg-color: #fff;
+  --dropdown-shawdown-color: #c8c8c8;
+  --top-menu-border-color: #d2d1d6;
 
-    // Sidebar
-    --sidebar-bg: #fff;
-    --sidebar-shadow: #c8c8c866;
+  // Sidebar
+  --sidebar-bg: #fff;
+  --sidebar-shadow: #c8c8c866;
 
-    // category-item
-    --cate-item-bg: #eee;
-    --cate-item-thumb-bg: #fff;
-    --cate-item-title-color: #000;
+  // category-item
+  --cate-item-bg: #eee;
+  --cate-item-thumb-bg: #fff;
+  --cate-item-title-color: #000;
 
-    @include abstracts.screen(md) {
-        --cate-item-bg: #fff;
-    }
+  @include abstracts.screen(md) {
+    --cate-item-bg: #fff;
+  }
 
-    // Button
-    --filter-btn-color: #6c6c72;
-    --filter-btn-bg: #fff;
-    // Product card
-    --product-card-bg: #fff;
-    --product-card-shadow-color: rgba(237, 237, 246, 0.2);
+  // Button
+  --filter-btn-color: #6c6c72;
+  --filter-btn-bg: #fff;
+  // Product card
+  --product-card-bg: #fff;
+  --product-card-shadow-color: rgba(237, 237, 246, 0.2);
 
-    // Filter form
-    --filter-form-bg: #fff;
-    --filter-form-shadow: rgba(0, 0, 0, 0.4);
-    --filter-form-tag-bg: #f8f8fb;
+  // Filter form
+  --filter-form-bg: #fff;
+  --filter-form-shadow: rgba(0, 0, 0, 0.4);
+  --filter-form-tag-bg: #f8f8fb;
+
+  //
+  --auth-content-bg: #fff;
 }
