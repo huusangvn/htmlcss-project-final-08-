@@ -1,10 +1,42 @@
 .form {
+  &:has(:invalid) &__submit-btn {
+    opacity: 0.5;
+    pointer-events: none;
+  }
   &__group {
     margin-top: 30px;
     &--inline {
       display: flex;
       align-items: center;
     }
+  }
+
+  &__group:has(:invalid):has(&__input:not(:placeholder-shown)) {
+    .form__text-input {
+      border-color: red;
+      background: rgba($color: red, $alpha: 0.1);
+    }
+    .form__input-icon--error,
+    .form__error {
+      display: block;
+    }
+    .form__input-icon {
+      display: none;
+    }
+  }
+  &__error {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: red;
+    display: none;
+  }
+
+  &__input-icon--error {
+    margin-left: 12px;
+    display: none;
+    animation: shake 0.9s;
   }
 
   &__text-input {
@@ -39,15 +71,45 @@
   }
 
   &__checkbox {
+    user-select: none;
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 10px;
 
     &-label {
+      margin-left: 29px;
       color: #9e9da8;
       font-size: 1.5rem;
       font-weight: 500;
       line-height: 146.667%;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+    }
+    &::before {
+      width: 19px;
+      height: 19px;
+      border-radius: 5px;
+      border: 1.5px solid #9e9da8;
+    }
+  }
+
+  &__checkbox:has(:checked) {
+    &::before {
+      border-color: #ffb700;
+      background: #ffb700;
+    }
+    &::after {
+      width: 15px;
+      height: 6px;
+      border: 3px solid;
+      border-color: transparent transparent #fff #fff;
+      rotate: -45deg;
+      left: 2px;
+      top: 5.5px;
     }
   }
 }
