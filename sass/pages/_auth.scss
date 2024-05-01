@@ -3,6 +3,8 @@
   display: flex;
   min-height: 100vh;
 
+  @supports (-webkit-touch-callout: none) {
+  }
   &__intro,
   &__content {
     padding: 0 30px;
@@ -42,6 +44,10 @@
       font-size: 1.8rem;
       font-weight: 500;
       line-height: 144.444%;
+
+      @include abstracts.screen(md) {
+        font-size: 1.5rem;
+      }
     }
   }
 
@@ -75,6 +81,9 @@
     font-size: 3rem;
     font-weight: 500;
     line-height: 146.667%;
+    @include abstracts.screen(md) {
+      font-size: 2.2rem;
+    }
   }
   &__desc {
     margin-top: 10px;
@@ -82,10 +91,17 @@
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 146.667%;
+    color: #9e9da8;
+    @include abstracts.screen(md) {
+      font-size: 1.4rem;
+    }
   }
   &__form {
     width: 100%;
     margin-top: 30px;
+    @include abstracts.screen(md) {
+      margin-top: 0;
+    }
   }
 
   &__link {
@@ -93,6 +109,9 @@
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 146.667%;
+    @include abstracts.screen(md) {
+      font-size: 1.4rem;
+    }
   }
 
   &__btn-group {
@@ -118,5 +137,12 @@
     align-items: center;
     gap: 10px;
     margin-top: 108px;
+
+    @include abstracts.screen(md) {
+      font-size: 1.6rem;
+    }
+    &-link {
+      font-size: inherit;
+    }
   }
 }

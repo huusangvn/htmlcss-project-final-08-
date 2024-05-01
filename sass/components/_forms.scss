@@ -1,3 +1,6 @@
+@use "../abstracts";
+
+$erro-color: #ed4337;
 .form {
   &:has(:invalid) &__submit-btn {
     opacity: 0.5;
@@ -13,8 +16,8 @@
 
   &__group:has(:invalid):has(&__input:not(:placeholder-shown)) {
     .form__text-input {
-      border-color: red;
-      background: rgba($color: red, $alpha: 0.1);
+      border-color: $erro-color;
+      background: rgba($color: #ed4337, $alpha: 0.1);
     }
     .form__input-icon--error,
     .form__error {
@@ -29,7 +32,7 @@
     text-align: left;
     font-size: 1.4rem;
     font-weight: 500;
-    color: red;
+    color: $erro-color;
     display: none;
   }
 
@@ -49,6 +52,10 @@
     &:focus-within {
       border-color: #77dae6;
     }
+
+    @include abstracts.screen(md) {
+      height: 48px;
+    }
   }
   &__input {
     height: 100%;
@@ -63,6 +70,10 @@
     }
     &-icon {
       margin-left: 12px;
+    }
+
+    @include abstracts.screen(md) {
+      font-size: 1.6rem;
     }
   }
 
@@ -82,6 +93,10 @@
       font-size: 1.5rem;
       font-weight: 500;
       line-height: 146.667%;
+
+      @include abstracts.screen(md) {
+        font-size: 1.4rem;
+      }
     }
 
     &::before,
