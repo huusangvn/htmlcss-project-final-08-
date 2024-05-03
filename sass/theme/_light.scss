@@ -45,6 +45,10 @@ html {
   --filter-form-shadow: rgba(0, 0, 0, 0.4);
   --filter-form-tag-bg: #f8f8fb;
 
-  //
+  //Auth
   --auth-content-bg: #fff;
+  --auth-intro-placeholder-color: #d2d1d6;
+  @include abstracts.screen(md) {
+    --auth-intro-bg: #fff;
+  }
 }
