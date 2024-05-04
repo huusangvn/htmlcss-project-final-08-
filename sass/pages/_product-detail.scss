@@ -1,16 +1,36 @@
+@use "../abstracts";
 .product-page {
   display: flex;
   flex-direction: column;
   min-height: 80vh;
+  padding-bottom: 50px;
   background: var(--product-detail-bg);
 }
 .product-container {
   margin-top: 30px;
+  @include abstracts.screen(md) {
+    margin-top: 20px;
+  }
+}
+
+.prod-info-container {
+  border-radius: 20px;
+  background: var(--product-detail-info-content-bg);
 }
 
 .prod-review {
+  padding-left: 30px;
+  @include abstracts.screen(lg) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  @include abstracts.screen(md) {
+    padding-left: 16px;
+  }
   padding: 0 30px;
   &__list {
+    flex: 1;
     display: flex;
     overflow: hidden;
   }
@@ -35,26 +55,148 @@
     justify-content: center;
     gap: 16px;
     padding: 30px;
+
+    @include abstracts.screen(lg) {
+      flex-direction: column;
+      padding-left: 0;
+    }
+    @include abstracts.screen(md) {
+      display: none;
+    }
   }
   &__thumb-img {
     width: 65px;
     height: 65px;
     object-fit: contain;
-    border: 1.5px solid rgba(64, 63, 78, 0.2);
+    border: 1.5px solid var(--product-detail-thumb-border);
     border-radius: 8px;
-    cursor: pointer;
     opacity: 0.9;
     transition: opacity border-color;
     transition-duration: 0.3s;
 
-    &:hover {
+    &:not(&--current):hover {
       opacity: 1;
       border-color: #403f4e;
+      cursor: pointer;
     }
 
     &--current {
       opacity: 1;
       border-color: #ffb700;
     }
+  }
+}
+
+.prod-info {
+  background: var(--prod-detail-info-bg);
+  padding: 60px;
+  border-radius: 10px;
+  @include abstracts.screen(xxl) {
+    padding: 40px;
+  }
+
+  @include abstracts.screen(lg) {
+    margin-top: 30px;
+  }
+
+  @include abstracts.screen(md) {
+    border-radius: 20px;
+    padding: 0 16px 16px;
+    margin-top: 0;
+  }
+  &__heading {
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 138.462%;
+  }
+  &__label {
+    margin-top: 30px;
+  }
+
+  &__tag {
+    background: var(--product-detail-tag-bg);
+  }
+
+  &__card {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #b9babe;
+  }
+  &__row {
+    display: flex;
+    align-items: center;
+  }
+
+  &__price {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 150%;
+  }
+
+  &__tax {
+    margin-left: 10px;
+    padding: 2px 8px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 142.857%;
+    color: #67b044;
+    border-radius: 4px;
+    background: var(
+      --Green-Green-20,
+      linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0.8) 100%
+      )
+    );
+  }
+  &__total-price {
+    margin: 23px 0 20px 0;
+    font-size: 2.6rem;
+    font-weight: 500;
+    line-height: 138.462%;
+  }
+  &__add-to-card {
+    flex: 1;
+  }
+  &__liked-btn {
+    width: 46px;
+    height: 46px;
+    margin-left: 20px;
+    border-radius: 6px;
+    border: 1px solid #d2d1d6;
+    background: transparent;
+  }
+}
+
+.prod-props {
+  padding-left: 30px;
+  @include abstracts.screen(xxl) {
+    padding-left: 10px;
+  }
+
+  @include abstracts.screen(lg) {
+    padding-left: 0;
+  }
+}
+
+.prod-prop {
+  margin-top: 30px;
+
+  display: flex;
+  gap: 16px;
+  &__icon {
+    align-self: flex-start;
+  }
+  &__title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 144.444%;
+  }
+  &__desc {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 142.857%;
   }
 }
