@@ -188,4 +188,7 @@ $erro-color: #ed4337;
       color: var(--text-color);
     }
   }
+  &__tag + &__tag {
+    margin-left: 20px;
+  }
 }
