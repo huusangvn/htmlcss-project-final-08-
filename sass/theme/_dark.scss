@@ -1,90 +1,101 @@
 @use "../abstracts";
 html.dark {
-    --text-color: #fff;
-    --icon-color: brightness(0) saturate(100%) invert(93%) sepia(100%) saturate(0%) hue-rotate(224deg) brightness(108%)
-        contrast(109%);
+  --text-color: #fff;
+  --icon-color: brightness(0) saturate(100%) invert(93%) sepia(100%)
+    saturate(0%) hue-rotate(224deg) brightness(108%) contrast(109%);
 
-    --body-bg: #292e39;
-    --header-bg-color: #171c28;
-    --top-act-group-bg-color: #292e39;
-    --top-act-group-shadow: #00000033;
-    --top-act-group-separate: #ededf6;
+  --body-bg: #292e39;
+  --header-bg-color: #171c28;
+  --top-act-group-bg-color: #292e39;
+  --top-act-group-shadow: #00000033;
+  --top-act-group-separate: #ededf6;
 
-    @include abstracts.screen(lg) {
-        --header-shadow-color: #00000033;
-    }
+  @include abstracts.screen(lg) {
+    --header-shadow-color: #00000033;
+  }
 
-    // Dropdown
-    --dropdown-bg-color: #2f3441;
-    --dropdown-shawdown-color: #171c2866;
-    --dropdown-arrow-color: brightness(0) saturate(100%) invert(20%) sepia(22%) saturate(442%) hue-rotate(185deg)
-        brightness(91%) contrast(97%);
-    --top-menu-border-color: #171c28;
-    --menu-column-icon-color: brightness(0) saturate(100%) invert(86%) sepia(6%) saturate(2076%) hue-rotate(198deg)
-        brightness(117%) contrast(96%);
+  // Dropdown
+  --dropdown-bg-color: #2f3441;
+  --dropdown-shawdown-color: #171c2866;
+  --dropdown-arrow-color: brightness(0) saturate(100%) invert(20%) sepia(22%)
+    saturate(442%) hue-rotate(185deg) brightness(91%) contrast(97%);
+  --top-menu-border-color: #171c28;
+  --menu-column-icon-color: brightness(0) saturate(100%) invert(86%) sepia(6%)
+    saturate(2076%) hue-rotate(198deg) brightness(117%) contrast(96%);
 
-    //Header
-    --header-act-dropdown-bg: #2f3441;
-    --header-act-dropdown-shadow: rgba(23, 28, 40, 0.4);
-    --header-act-dropdown-border-color: #171c28;
-    // Sidebar
-    --sidebar-bg: #292e39;
-    --sidebar-shadow: #171c2866;
+  //Header
+  --header-act-dropdown-bg: #2f3441;
+  --header-act-dropdown-shadow: rgba(23, 28, 40, 0.4);
+  --header-act-dropdown-border-color: #171c28;
+  // Sidebar
+  --sidebar-bg: #292e39;
+  --sidebar-shadow: #171c2866;
 
-    // category-item
-    --cate-item-bg: #171c28;
-    --cate-item-thumb-bg: #292e39;
-    --cate-item-title-color: #fff;
+  // category-item
+  --cate-item-bg: #171c28;
+  --cate-item-thumb-bg: #292e39;
+  --cate-item-title-color: #fff;
 
-    // Button
-    --filter-btn-color: #fff;
-    --filter-btn-bg: #171c28;
+  // Button
+  --filter-btn-color: #fff;
+  --filter-btn-bg: #171c28;
 
-    // Product card
-    --product-card-bg: #171c28;
-    --product-card-shadow-color: rgba(0, 0, 0, 0.2);
+  // Product card
+  --product-card-bg: #171c28;
+  --product-card-shadow-color: rgba(0, 0, 0, 0.2);
 
-    // Filter
-    --form-tag-bg: var(--dropdown-bg-color);
-    --filter-form-input-color: #fff;
-    --filter-form-bg: #2f3441;
-    --filter-form-shadow: rgba(200, 200, 200, 0.4);
-    --form-tag-bg: #171c28;
-    --filter-form-arrow: var(--dropdown-arrow-color);
+  // Filter
+  --form-tag-bg: var(--dropdown-bg-color);
+  --filter-form-input-color: #fff;
+  --filter-form-bg: #2f3441;
+  --filter-form-shadow: rgba(200, 200, 200, 0.4);
+  --form-tag-bg: #171c28;
+  --filter-form-arrow: var(--dropdown-arrow-color);
 
-    //Auth
-    --auth-intro-bg: #171c28;
-    --auth-content-bg: #292e39;
-    --auth-intro-color: #b9babe;
-    --auth-intro-text-color: #b9babe;
+  //Auth
+  --auth-intro-bg: #171c28;
+  --auth-content-bg: #292e39;
+  --auth-intro-color: #b9babe;
+  --auth-intro-text-color: #b9babe;
 
-    //Form
-    --auth-intro-placeholder-color: #b9babe;
-    --auth-intro-heading-color: #b9babe;
-    --form-tag-bg: #292e39;
+  //Form
+  --auth-intro-placeholder-color: #b9babe;
+  --auth-intro-heading-color: #b9babe;
+  --form-tag-bg: #292e39;
 
-    // Product
+  // Product
+  --product-detail-bg: #292e39;
+  --prod-detail-info-bg: #171c28;
+  --product-detail-info-content-bg: #292e39;
+  --product-detail-tag-bg: #292e39;
+  --product-detail-thumb-border: #b9babe;
+  @include abstracts.screen(md) {
     --product-detail-bg: #292e39;
-    --prod-detail-info-bg: #171c28;
-    --product-detail-info-content-bg: #292e39;
-    --product-detail-tag-bg: #292e39;
-    --product-detail-thumb-border: #b9babe;
-    @include abstracts.screen(md) {
-        --product-detail-bg: #292e39;
-        --prod-detail-info-bg: transparent;
-        --product-detail-info-content-bg: #171c28;
-    }
+    --prod-detail-info-bg: transparent;
+    --product-detail-info-content-bg: #171c28;
+  }
 
-    //Breadcrumbs
+  //Breadcrumbs
+  --breadcrumbs-bg: #171c28;
+  --breadcrumbs-shadow: rgba(23, 28, 40, 0.2);
+
+  @include abstracts.screen(md) {
     --breadcrumbs-bg: #171c28;
-    --breadcrumbs-shadow: rgba(23, 28, 40, 0.2);
+  }
+  // SEARCH bar
+  --search-bar-bg: #171c28;
 
-    @include abstracts.screen(md) {
-        --breadcrumbs-bg: #171c28;
-    }
-    // SEARCH bar
-    --search-bar-bg: #171c28;
+  // Review card
+  --review-card-bg: #171c28;
 
-    // Review card
-    --review-card-bg: #171c28;
+  //Checkout
+  --checkout-breadcrumbs-bg: #171c28;
+  --checkout-cart-info-bg: #171c28;
+  --checkout-cart-info-shadow: rgba(23, 28, 40, 0.2);
+  --checkout-border-color: #292e39;
+  --checkout-gift-shadow: rgba(23, 28, 40, 0.2);
+
+  //Dialog
+  --dialog-bg: #2f3441;
+  --dialog-shadow: rgba(23, 28, 40, 0.2);
 }
