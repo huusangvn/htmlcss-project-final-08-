@@ -13,9 +13,7 @@
         </div>
 
     </div>
-
     </div>
-
     <script type="text/javascript">
     var currentImage;
     var currentIndex = -1;

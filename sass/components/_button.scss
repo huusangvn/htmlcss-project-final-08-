@@ -34,6 +34,10 @@
     display: none;
   }
 
+  &__icon:hover {
+    color: red;
+  }
+
   &__icon--liked {
     margin-top: 6px;
   }
@@ -63,6 +67,7 @@
   &--text {
     background: transparent;
     font-weight: 400;
+    color: #fff;
   }
 
   &--primary {

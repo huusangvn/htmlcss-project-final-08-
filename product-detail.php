@@ -1,4 +1,5 @@
 <?php
+
     // require_once "../config/connect.php";
     $severName = "localhost";
     $userName = "root";
@@ -39,10 +40,10 @@ $imagePaths = [
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grocery Mart</title>
+    <title>MeiphoneS | Điện thoại, laptop, phụ kiện chính hãng</title>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
@@ -62,7 +63,7 @@ $imagePaths = [
     <!-- Header -->
     <header id="header" class="header"></header>
     <script>
-    load("#header", "./templates/header-logined.html");
+    load("#header", "./templates/header.php");
     </script>
     <main class="product-page">
         <div class="container">
@@ -79,22 +80,14 @@ $imagePaths = [
                     <!-- Breadcrumbs -->
                     <ul class="breadcrumbs">
                         <li>
-                            <a href="#!" class="breadcrumbs__link">Departments
+                            <a href="#!" class="breadcrumbs__link">Trang chủ
                                 <img src="./assets/icons/arrow-right.svg" alt="" />
                             </a>
                         </li>
                         <li>
-                            <a href="#!" class="breadcrumbs__link">Coffee
+                            <a href="#!" class="breadcrumbs__link">Chi tiết sản phẩm
                                 <img src="./assets/icons/arrow-right.svg" alt="" />
                             </a>
-                        </li>
-                        <li>
-                            <a href="#!" class="breadcrumbs__link">Coffee Beans
-                                <img src="./assets/icons/arrow-right.svg" alt="" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#!" class="breadcrumbs__link breadcrumbs__link--current">LavAzza </a>
                         </li>
                     </ul>
                 </div>
@@ -128,7 +121,10 @@ $imagePaths = [
                             </div>
                         </div>
                         <div class="col-7 col-xl-12">
-                            <form action="" class="form">
+                            <form action="./addTocart.php?id=<?php echo $row_sp["IdSanPham"]; ?>" method="POST"
+                                class="form">
+                                <img src="./assets/img/product/iPhone-product-banner-v1.webp" alt=""
+                                    class="form__banner d-lg-none">
                                 <section class="prod-info">
                                     <h1 class="prod-info__heading">
                                         <?php echo $row_sp["TenSanPham"]; ?>
@@ -139,7 +135,7 @@ $imagePaths = [
                                                 <img src="./assets/icons/star.svg" alt="" class="prod-prop__icon" />
                                                 <h4 class="prod-prop__title">(3.5) 1100 reviews</h4>
                                             </div>
-                                            <label for="" class="form__label prod-info__label">Chọn RAM</label>
+                                            <label for="" class="form__label prod-info__label">Chọn Dung Lượng</label>
                                             <div class="filter__form-group">
                                                 <div class="form__select-wrap">
                                                     <div class="form__select" style="--width: 146px">
@@ -196,7 +192,8 @@ $imagePaths = [
                                                         <?php echo $formattedDiscountAmount; ?>đ
                                                     </p>
                                                     <div class="prod-info__row">
-                                                        <button class="btn btn--primary prod-info__add-to-card">
+                                                        <button name="btnAddToCart"
+                                                            class="btn btn--primary prod-info__add-to-card ">
                                                             Thêm Vào Giỏ
                                                         </button>
                                                         <button class="like-btn prod-info__liked-btn">
@@ -264,7 +261,8 @@ $imagePaths = [
 
                                             </p>
                                             <p>
-                                                <img src="./images/<?php echo $row_sp["HinhAnh"]; ?>" alt="" />
+                                                <img src="./images/<?php echo $row_sp["HinhAnh"]; ?>" alt=""
+                                                    name="img" />
                                             </p>
                                             <p>
                                                 Mặt lưng của máy tính bảng được làm nhám nhẹ, cho khả năng chống bám dấu
@@ -427,10 +425,13 @@ $imagePaths = [
         </div>
     </main>
     <!-- Footer -->
-    <footer id="footer"></footer>
+    <footer id="footer" class="footer"></footer>
     <script>
-    load("#footer", "./templates/footer.html");
+    load("#footer", "./templates/footer.php");
     </script>
+    <a href="#" class="to-top">
+        <img src="./assets/icons/arrow-down-2.svg" alt="" class="backtop__arrow">
+    </a>
 </body>
 
 </html>

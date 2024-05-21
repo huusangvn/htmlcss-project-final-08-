@@ -6,9 +6,12 @@ html.dark {
 
   --body-bg: #292e39;
   --header-bg-color: #171c28;
+  --footer-bg-color: var(--header-bg-color);
+  --footer-text-color: #9e9da6;
   --top-act-group-bg-color: #292e39;
   --top-act-group-shadow: #00000033;
   --top-act-group-separate: #ededf6;
+  --logo-title-color: #fff;
 
   @include abstracts.screen(lg) {
     --header-shadow-color: #00000033;
@@ -22,6 +25,8 @@ html.dark {
   --top-menu-border-color: #171c28;
   --menu-column-icon-color: brightness(0) saturate(100%) invert(86%) sepia(6%)
     saturate(2076%) hue-rotate(198deg) brightness(117%) contrast(96%);
+
+  --menu-column-text-color: #fff;
 
   //Header
   --header-act-dropdown-bg: #2f3441;
@@ -63,6 +68,10 @@ html.dark {
   --auth-intro-placeholder-color: #b9babe;
   --auth-intro-heading-color: #b9babe;
   --form-tag-bg: #292e39;
+  --form-placeholder-color: #b9babe;
+  --form-select-dialog-shadow: rgba($color: #fff, $alpha: 0.15);
+  --form-select-dialog-bg: #2f3441;
+  --form-option-hover-bg: #171c28;
 
   // Product
   --product-detail-bg: #292e39;

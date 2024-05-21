@@ -3,16 +3,18 @@
 ::before,
 ::after {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 * {
   -webkit-tap-highlight-color: transparent;
 }
 html {
+  scroll-behavior: smooth;
   font-size: 62.5%;
 }
 
 body {
-  font-family: Gordita, sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
   color: var(--text-color);
   background: var(--body-bg);
@@ -45,11 +47,29 @@ label {
   color: inherit;
 }
 
-input {
+input,
+textarea {
   background: transparent;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+input:-webkit-autofill:hover {
+  transition: background-color 1s 9999s;
+  -webkit-text-fill-color: var(--text-color);
+  caret-color: var(--text-color);
+}
+
 .icon {
   filter: var(--icon-color);
+}
+
+.icon-arrow {
+  filter: var(--icon-color-arrow);
+  height: 40%;
+  width: 20px;
+  font-size: 1.3rem;
 }
 
 .container {

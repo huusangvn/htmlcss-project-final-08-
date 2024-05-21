@@ -23,6 +23,7 @@
     </div>
 </div>
 <?php
+    session_start();
    $severName = "localhost";
     $userName = "root";
     $password = "";
@@ -44,15 +45,17 @@
         </button>
         <!-- Logo -->
         <a href="./" class="logo top-bar__logo">
+            <h1 class="logo__title top-bar__logo-title">MeiphoneS</h1>
             <img src="./assets/icons/logo.ico" alt="CellphoneS" class="logo__img top-bar__logo-img" />
         </a>
+
         <!-- Navbar -->
         <nav id="navbar" class="navbar hide">
             <button class="navbar__close-btn js-toggle" toggle-target="#navbar">
                 <img src="./assets/icons/arrrow-left.svg" alt="" class="icon" />
             </button>
 
-            <a href="./checkout.html" class="nav-btn d-none d-md-flex">
+            <a href="./checkout.php" class="nav-btn d-none d-md-flex">
                 <img src="./assets/icons/buy.svg" alt="" class="icon nav-bar__icon" />
                 <span class="nav-btn__title">Card</span>
                 <span class="nav-btn__qnt">3</span>
@@ -63,14 +66,13 @@
                 <span class="nav-btn__title">Favorite</span>
                 <span class="nav-btn__qnt">3</span>
             </a>
-            <ul class="navbar__list js-dropdown-list">
+            <ul class="navbar__list">
                 <li class="navbar__item">
-                    <a href="#!" class="navbar__link">
+                    <button class="navbar__link navbar__link--white js-toggle" toggle-target="#dropdown">
+                        <img src="./assets/icons/document2.svg" alt="" class="icon-arrow icon navbar__arrow" />
                         DANH MỤC
-                        <img src="./assets/icons/arrow-down.svg" alt="" class="icon navbar__arrow" />
-                    </a>
-
-                    <div class="dropdown js-dropdown">
+                    </button>
+                    <div class="dropdown hide" id="dropdown">
                         <div class="dropdown__inner">
                             <div class="top-menu">
                                 <div class="top-menu__main">
@@ -102,75 +104,20 @@
                                                                         class="menu-column__icon-2" />
                                                                 </div>
                                                                 <div class="menu-column__content">
-                                                                    <h2 class="menu-column__heading">TV & Video</h2>
+                                                                    <h2 class="menu-column__heading">Nhà sản xuất</h2>
                                                                     <ul class="menu-column__list">
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">Shop
-                                                                                all TVs</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">TVs
-                                                                                by Size</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">Smart
-                                                                                TVs</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">Roku
-                                                                                TVs</a>
-                                                                        </li>
+                                                                        <?php
+                                                                        $sql_nsx = "SELECT * FROM tbl_nhasanxuat";
+                                                                        $result_nsx = mysqli_query($conn,$sql_nsx);
+                                                                        while($row_nsx = mysqli_fetch_array($result_nsx)) {?>
                                                                         <li class="menu-column__item">
                                                                             <a href="#!"
-                                                                                class="menu-column__link">Streaming</a>
+                                                                                class="menu-column__link"><?php echo $row_nsx["TenNhaSanXuat"]; ?></a>
                                                                         </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">TV
-                                                                                Mounts & Accessories</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">DVD &
-                                                                                Blu-Ray Players</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Menu-columns 1.2 -->
-                                                            <div class="menu-column">
-                                                                <div class="menu-column__icon">
-                                                                    <img src="./assets/img/category/cate-3.1.svg" alt=""
-                                                                        class="menu-column__icon-1" />
-                                                                    <img src="./assets/img/category/cate-2.2.svg" alt=""
-                                                                        class="menu-column__icon-2" />
-                                                                </div>
-                                                                <div class="menu-column__content">
-                                                                    <h2 class="menu-column__heading">
-                                                                        Wearable Technology
-                                                                    </h2>
-                                                                    <ul class="menu-column__list">
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Galaxy
-                                                                                Watch</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">Apple
-                                                                                Watch</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Fitness
-                                                                                Trackers</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Virtual
-                                                                                Reality</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Headphones</a>
-                                                                        </li>
+                                                                        <?php
+                                                                        }
+                                                                        ?>
+
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -186,59 +133,19 @@
                                                                         class="menu-column__icon-2" />
                                                                 </div>
                                                                 <div class="menu-column__content">
-                                                                    <h2 class="menu-column__heading">Computers</h2>
+                                                                    <h2 class="menu-column__heading">Sản phẩm</h2>
                                                                     <ul class="menu-column__list">
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">Shop
-                                                                                All Computers</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Laptops</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">PC
-                                                                                Gaming</a>
-                                                                        </li>
+                                                                        <?php
+                                                            $sql_danhmuc = "SELECT * FROM tbl_danhmuc";
+                                                            $result_danhmuc = mysqli_query($conn,$sql_danhmuc);
+                                                            while($row_danhmuc = mysqli_fetch_array($result_danhmuc)) {?>
                                                                         <li class="menu-column__item">
                                                                             <a href="#!"
-                                                                                class="menu-column__link">Monitors</a>
+                                                                                class="menu-column__link"><?php echo $row_danhmuc["tendanhmuc"]; ?></a>
                                                                         </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Chromebook</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Printers &
-                                                                                Ink</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">Shop
-                                                                                all TVs</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Computer
-                                                                                Accessories</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Desktops</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">Tax
-                                                                                Software</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Computer
-                                                                                Software</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">PC
-                                                                                Finder</a>
-                                                                        </li>
+                                                                        <?php
+                                                        }
+                                                        ?>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -254,77 +161,80 @@
                                                                         class="menu-column__icon-2" />
                                                                 </div>
                                                                 <div class="menu-column__content">
-                                                                    <h2 class="menu-column__heading">Savings</h2>
+                                                                    <h2 class="menu-column__heading">Mức giá</h2>
                                                                     <ul class="menu-column__list">
                                                                         <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">Tech
-                                                                                Savings</a>
+                                                                            <a href="#!" class="menu-column__link">Dưới
+                                                                                10 triệu</a>
                                                                         </li>
                                                                         <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Overstock
-                                                                                Savings</a>
+                                                                            <a href="#!" class="menu-column__link">Từ 10
+                                                                                - 20 triệu</a>
                                                                         </li>
                                                                         <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">Tech
-                                                                                Rollbacks</a>
+                                                                            <a href="#!" class="menu-column__link">Từ 20
+                                                                                - 25 triệu</a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">Từ 25
+                                                                                triệu trở
+                                                                                lên</a>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
                                                             <!-- Menu-columns 3.2 -->
-                                                            <div class="menu-column">
+                                                            <div class="menu-column d-xxl-none">
                                                                 <div class="menu-column__icon">
                                                                     <img src="./assets/img/category/cate-6.1.svg" alt=""
                                                                         class="menu-column__icon-1" />
                                                                     <img src="./assets/img/category/cate-6.2.svg" alt=""
                                                                         class="menu-column__icon-2" />
                                                                 </div>
-                                                                <div class="menu-column__content">
-                                                                    <h2 class="menu-column__heading">Cell Phones
+                                                                <div class="menu-column__content ">
+                                                                    <h2 class="menu-column__heading">Ưu đãi sinh viên
                                                                     </h2>
                                                                     <ul class="menu-column__list">
                                                                         <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Wireless
-                                                                                Deals</a>
+                                                                            <a href="#!" class="menu-column__link">Đăng
+                                                                                ký S-STUDENT</a>
                                                                         </li>
                                                                         <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">5G
-                                                                                Phones
+                                                                            <a href="#!"
+                                                                                class="menu-column__link">Laptop giảm
+                                                                                thêm
+                                                                                400k</a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">Điện
+                                                                                thoại giảm thêm
+                                                                                5%
                                                                             </a>
                                                                         </li>
                                                                         <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Prepaid
-                                                                                Phones
-                                                                                & Plans
+                                                                            <a href="#!" class="menu-column__link">Đồng
+                                                                                hồ giảm thêm 5%
                                                                             </a>
                                                                         </li>
                                                                         <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Refurbished
-                                                                                Phones</a>
+                                                                            <a href="#!" class="menu-column__link">Phụ
+                                                                                kiện giảm thêm
+                                                                                5%</a>
                                                                         </li>
                                                                         <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">iPhone
-                                                                                Accessories</a>
+                                                                            <a href="#!" class="menu-column__link">Hàng
+                                                                                cũ giảm thêm
+                                                                                5%</a>
                                                                         </li>
                                                                         <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">Cases
-                                                                                & Screen Protectors
+                                                                            <a href="#!" class="menu-column__link">Ưu
+                                                                                đãi học viên Edu
+                                                                                talk
                                                                             </a>
                                                                         </li>
                                                                         <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Walmart
-                                                                                Protection Plan</a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!"
-                                                                                class="menu-column__link">Unlocked
-                                                                                Phones</a>
+                                                                            <a href="#!" class="menu-column__link">Học
+                                                                                viện Teky</a>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -343,277 +253,14 @@
                         </div>
                     </div>
                 </li>
-                <li class="navbar__item">
-                    <a href="#!" class="navbar__link">Grocery <img src="./assets/icons/arrow-down.svg" alt=""
-                            class="icon navbar__arrow" /></a>
-                    <div class="dropdown">
-                        <div class="dropdown__inner">
-                            <div class="top-menu">
-                                <div class="sub-menu sub-menu--not-main">
-                                    <!-- sub-menu__column 1-->
-                                    <div class="sub-menu__column">
-                                        <!-- Menu-column 1.1 -->
-                                        <div class="menu-column">
-                                            <div class="menu-column__icon">
-                                                <img src="./assets/img/category/cate-2.1.svg" alt=""
-                                                    class="menu-column__icon-1" />
-                                                <img src="./assets/img/category/cate-2.2.svg" alt=""
-                                                    class="menu-column__icon-2" />
-                                            </div>
-                                            <div class="menu-column__content">
-                                                <h2 class="menu-column__heading">TV & Video</h2>
-                                                <ul class="menu-column__list">
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Shop all TVs</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">TVs by Size</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Smart TVs</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Roku TVs</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Streaming</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">TV Mounts &
-                                                            Accessories</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">DVD & Blu-Ray Players</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- Menu-columns 1.2 -->
-                                        <div class="menu-column">
-                                            <div class="menu-column__icon">
-                                                <img src="./assets/img/category/cate-3.1.svg" alt=""
-                                                    class="menu-column__icon-1" />
-                                                <img src="./assets/img/category/cate-2.2.svg" alt=""
-                                                    class="menu-column__icon-2" />
-                                            </div>
-                                            <div class="menu-column__content">
-                                                <h2 class="menu-column__heading">Wearable Technology</h2>
-                                                <ul class="menu-column__list">
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Galaxy Watch</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Apple Watch</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Fitness Trackers</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Virtual Reality</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Headphones</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Sub-menu__column 2 -->
-                                    <div class="sub-menu__column">
-                                        <!-- Menu-column 2.1 -->
-                                        <div class="menu-column">
-                                            <div class="menu-column__icon">
-                                                <img src="./assets/img/category/cate-4.1.svg" alt=""
-                                                    class="menu-column__icon-1" />
-                                                <img src="./assets/img/category/cate-4.2.svg" alt=""
-                                                    class="menu-column__icon-2" />
-                                            </div>
-                                            <div class="menu-column__content">
-                                                <h2 class="menu-column__heading">Computers</h2>
-                                                <ul class="menu-column__list">
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Shop All Computers</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Laptops</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">PC Gaming</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Monitors</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Chromebook</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Printers & Ink</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Shop all TVs</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Computer Accessories</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Desktops</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Tax Software</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Computer Software</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">PC Finder</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Sub-menu__column 3 -->
-                                    <div class="sub-menu__column">
-                                        <!-- Menu-column 3.1 -->
-                                        <div class="menu-column">
-                                            <div class="menu-column__icon">
-                                                <img src="./assets/img/category/cate-5.1.svg" alt=""
-                                                    class="menu-column__icon-1" />
-                                                <img src="./assets/img/category/cate-5.2.svg" alt=""
-                                                    class="menu-column__icon-2" />
-                                            </div>
-                                            <div class="menu-column__content">
-                                                <h2 class="menu-column__heading">Savings</h2>
-                                                <ul class="menu-column__list">
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Tech Savings</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Overstock Savings</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Tech Rollbacks</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- Menu-columns 3.2 -->
-                                        <div class="menu-column">
-                                            <div class="menu-column__icon">
-                                                <img src="./assets/img/category/cate-6.1.svg" alt=""
-                                                    class="menu-column__icon-1" />
-                                                <img src="./assets/img/category/cate-6.2.svg" alt=""
-                                                    class="menu-column__icon-2" />
-                                            </div>
-                                            <div class="menu-column__content">
-                                                <h2 class="menu-column__heading">Cell Phones</h2>
-                                                <ul class="menu-column__list">
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Wireless Deals</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">5G Phones </a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Prepaid Phones & Plans
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Refurbished Phones</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">iPhone Accessories</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Cases & Screen Protectors
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Walmart Protection
-                                                            Plan</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Unlocked Phones</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- sub-menu__column 4-->
-                                    <div class="sub-menu__column">
-                                        <!-- Menu-column 1.1 -->
-                                        <div class="menu-column">
-                                            <div class="menu-column__icon">
-                                                <img src="./assets/img/category/cate-2.1.svg" alt=""
-                                                    class="menu-column__icon-1" />
-                                                <img src="./assets/img/category/cate-2.2.svg" alt=""
-                                                    class="menu-column__icon-2" />
-                                            </div>
-                                            <div class="menu-column__content">
-                                                <h2 class="menu-column__heading">TV & Video</h2>
-                                                <ul class="menu-column__list">
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Shop all TVs</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">TVs by Size</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Smart TVs</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Roku TVs</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Streaming</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">TV Mounts &
-                                                            Accessories</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">DVD & Blu-Ray Players</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- Menu-columns 1.2 -->
-                                        <div class="menu-column">
-                                            <div class="menu-column__icon">
-                                                <img src="./assets/img/category/cate-3.1.svg" alt=""
-                                                    class="menu-column__icon-1" />
-                                                <img src="./assets/img/category/cate-2.2.svg" alt=""
-                                                    class="menu-column__icon-2" />
-                                            </div>
-                                            <div class="menu-column__content">
-                                                <h2 class="menu-column__heading">Wearable Technology</h2>
-                                                <ul class="menu-column__list">
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Galaxy Watch</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Apple Watch</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Fitness Trackers</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Virtual Reality</a>
-                                                    </li>
-                                                    <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Headphones</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="navbar__item">
-                    <a href="#!" class="navbar__link">Beauty <img src="./assets/icons/arrow-down.svg" alt=""
-                            class="icon navbar__arrow" /></a>
+                <!-- Địa CHỉ -->
+                <li class="navbar__item d-xl-none">
+                    <a href="#!" class="navbar__link navbar__link--white ">
+                        <img src="./assets/icons/location.svg" alt="" class="icon-arrow icon navbar__arrow" />
+                        Xem giá tại <br>
+                        Hồ Chí Minh
+                        <img src="./assets/icons/arrow-down.svg" alt="" class="icon-arrow icon navbar__arrow" />
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -622,8 +269,16 @@
 
         <!-- Action -->
         <div class="top-act">
-            <a href="./sign-in.html" class="btn btn--text d-md-none">Sign In</a>
-            <a href="./sign-up.html" class="top-act__sign-up btn btn--primary ">Sign Up</a>
+            <form action="./search.php" method="GET">
+                <div class="top-act__group top-act__group--single d-md-none">
+                    <input type="text" class="top-act__input" name="txtTop-act__search" placeholder="Bạn cần tìm gì?">
+                    <button class="top-act__btn" type="submit">
+                        <img src="./assets/icons/search.svg" alt="" class="icon top-act__icon" />
+                    </button>
+                </div>
+            </form>
+            <a href="./sign-in.html" class="btn btn--text d-md-none">Đăng nhập</a>
+            <a href="./sign-up.html" class="top-act__sign-up btn btn--primary ">Đăng ký</a>
         </div>
     </div>
 </div>

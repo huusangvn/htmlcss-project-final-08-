@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grocery Mart</title>
+    <title>MeiphoneS | Điện thoại, laptop, phụ kiện chính hãng</title>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
@@ -27,9 +27,9 @@
     <main class="auth">
         <!-- Auth-intro -->
         <div class="auth__intro d-md-none">
-            <img src="./assets/img/auth/intro.svg " alt="" class=" auth__intro-img">
+            <img src="./assets/img/auth/Asus_sliding.2_new.webp " alt="" class=" auth__intro-img">
             <p class="auth__intro-text">
-                The best of luxury brand values, high quality products, and innovative services
+                Giá trị thương hiệu cao cấp nhất, sản phẩm chất lượng cao và dịch vụ sáng tạo
             </p>
         </div>
 
@@ -37,18 +37,18 @@
         <div class="auth__content ">
             <div class="auth__content-inner">
                 <!-- Logo -->
-                <a href="./" class="logo">
-                    <img src="./assets/icons/logo.svg" alt="grocerymart" class="logo__img" />
-                    <h2 class="logo__title">grocerymart</h2>
+                <a href="./" class="logo top-bar__logo">
+                    <h1 class="logo__title top-bar__logo-title">MeiphoneS</h1>
+                    <img src="./assets/icons/logo.ico" alt="CellphoneS" class="logo__img top-bar__logo-img" />
                 </a>
-                <h1 class="auth__heading">Hello Again!</h1>
-                <p class="auth__desc">Welcome back to sign in. As a returning customer, you have access to your
-                    previously saved all information.</p>
-                <form action="./index-logined.html" class="form auth__form">
+                <h1 class="auth__heading">HÀI LỐ</h1>
+                <p class="auth__desc">Chào mừng bạn quay lại đăng nhập. Là khách hàng cũ, bạn có quyền truy cập vào
+                    trước đó đã lưu tất cả thông tin.</p>
+                <form action="./Login.php" class="form auth__form" method="POST">
                     <div class="form__group">
                         <div class="form__text-input">
-                            <input type="email" name="" id="" class="form__input" placeholder="Email"
-                                value="admin@handsome.com" required>
+                            <input type="email" name="txtEmail" id="" class="form__input" placeholder="Email" value=""
+                                required>
                             <img src="./assets/icons/message.svg" alt="" class="form__input-icon">
                             <img src="./assets/icons/error.svg" alt="" class="form__input-icon--error">
                         </div>
@@ -56,8 +56,8 @@
                     </div>
                     <div class="form__group">
                         <div class="form__text-input">
-                            <input type="password" name="" id="" class="form__input" placeholder="Password"
-                                value="111111" required minlength="6">
+                            <input type="password" name="txtPassword" id="" class="form__input" placeholder="Password"
+                                value="" required minlength="6">
                             <img src="./assets/icons/lock.svg" alt="" class="form__input-icon">
                             <img src="./assets/icons/error.svg" alt="" class="form__input-icon--error">
                         </div>
@@ -66,22 +66,22 @@
                     <div class="form__group form__group--inline">
                         <label class="form__checkbox">
                             <input type="checkbox" name="" id="" class="form__checkbox-input d-none">
-                            <span class="form__checkbox-label">Set as default card </span>
+                            <span class="form__checkbox-label">Đặt làm mặc định</span>
                         </label>
-                        <a href="./reset-password.html" class="auth__link form__pull-right">Forgot Password?</a>
+                        <a href="./reset-password.html" class="auth__link form__pull-right">Quên mật khẩu?</a>
                     </div>
                     <div class="form__group auth__btn-group">
-                        <button class="btn btn--primary auth__btn form__submit-btn">Sign In</button>
+                        <button class="btn btn--primary auth__btn form__submit-btn" name="Login">ĐĂNG NHẬP</button>
                         <button class="btn btn-outline auth__btn btn--no-margin bg-grey">
                             <img src="./assets/icons/google.svg" alt="" class="btn__icon icon">
-                            Sign in with Google
+                            ĐĂNG NHẬP VỚI GOOGLE
                         </button>
                     </div>
                 </form>
 
                 <p class="auth__text">
-                    Don’t have an account yet?
-                    <a href="./sign-up.html" class="auth__link auth__text-link">Sign Up</a>
+                    Bạn chưa có tài khoản?
+                    <a href="./sign-up.html" class="auth__link auth__text-link">Đăng Ký</a>
                 </p>
             </div>
         </div>
